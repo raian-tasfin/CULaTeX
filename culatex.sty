@@ -1,2 +1,109 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{culatex}[2023/04/08 Package for CU Lab Reports and Assignments]
+
+\RequirePackage{graphicx}
+\RequirePackage{ifthen}
+
+\newcommand{\setauthordept}[1]{\def\authordept{#1}}
+\newcommand{\setauthorsession}[1]{\def\authorsession{#1}}
+\newcommand{\setauthorsemester}[1]{\def\authorsemester{#1}}
+\newcommand{\setauthoryear}[1]{\def\authoryear{#1}}
+\newcommand{\setauthorname}[1]{\def\authorname{#1}}
+\newcommand{\setauthorid}[1]{\def\authorid{#1}}
+\newcommand{\setlabreportno}[1]{\def\labreportno{#1}}
+\newcommand{\setassignmentno}[1]{\def\assignmentno{#1}}
+\newcommand{\setcoursetitle}[1]{\def\coursetitle{#1}}
+\newcommand{\setcoursecode}[1]{\def\coursecode{#1}}
+\newcommand{\setprogramme}[1]{\def\programme{#1}}
+\newcommand{\setreceivername}[1]{\def\receivername{#1}}
+\newcommand{\setreceiverposition}[1]{\def\receiverposition{#1}}
+\newcommand{\setreceiverdept}[1]{\def\receiverdept{#1}}
+
+\newcommand{\makecover}{
+		%% Adding logo
+		\begin{figure}[h]
+				\vspace*{-4em}
+				\centering
+				\includegraphics[width=0.2\linewidth]{./graphics/logo.pdf}
+				\par
+				\vspace*{2em}
+				{\Large UNIVERSITY OF CHITTAGONG}
+		\end{figure}
+
+		%% Document information
+		\begin{center}
+				\vspace*{3em}
+				\ifdefined\authordept
+						\textbf{\authordept} \\
+						\bigskip
+				\fi
+				\ifdefined\authorsession
+						Session: \authorsession \\
+				\fi
+				\ifdefined\authorsemester
+						\authorsemester \\
+				\fi
+				\ifdefined\authoryear
+						\authoryear
+				\fi
+				\bigskip
+				\begin{tabular}{l l}
+
+				  \ifdefined\labreportno
+				  Lab Report No. &: \labreportno \\
+				  \fi
+
+				  \ifdefined\assignmentno
+				  Assignment No. &: \assignmentno \\
+				  \fi
+
+				  \ifdefined\coursetitle
+				  Course Title &: \coursetitle \\
+				  \fi
+
+				  \ifdefined\coursecode
+				  Course Code No. &: \coursecode \\
+				  \fi
+
+				  \ifdefined\programme
+				  Programme &: \programme \\
+				  \fi
+				\end{tabular}
+		\end{center}
+
+		%% Teacher information
+		\begin{center}
+				\vspace*{3em}
+				Submitted to: \\
+				\ifdefined\receivername
+						\textbf{\receivername} \\
+				\fi
+				\ifdefined\receiverposition
+						\receiverposition \\
+				\fi
+				\ifdefined\receiverdept
+						\receiverdept \\
+				\fi
+				University of Chittagong
+		\end{center}
+
+		%% Student information
+		\begin{center}
+				\vspace*{3em}
+				Submitted by: \\
+				\ifdefined\authorname
+						\textbf{\authorname} \\
+				\fi
+				\ifdefined\authorid
+						ID: \authorid \\
+				\fi
+				\ifdefined\authordept
+						\authordept \\
+				\fi
+				University of Chittagong
+		\end{center}
+		\pagenumbering{gobble}
+		\pagebreak
+		\pagenumbering{arabic}
+}
+
