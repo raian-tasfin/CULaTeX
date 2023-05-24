@@ -1,0 +1,57 @@
+%% brackets
+\newcommand{\parenth   }[1]{\left( {#1} \right)}
+\newcommand{\squarepair}[1]{\left[ {#1} \right]}
+\DeclarePairedDelimiter\curlypair\{\}
+%% inverse
+\newcommand{\inverse }[1]{\:{\dfrac{1}{#1}}\:}
+\newcommand{\sinverse}[1]{\:{\frac{1}{#1}}\:}
+%% var and indices
+\newcommand{\varxi}{{x_i       }}
+\newcommand{\varyi}{{y_i       }}
+\newcommand{\varei}{{e_i       }}
+\newcommand{\vardi}{{d_i       }}
+\newcommand{\ith  }{{i\text{th}}}
+%%% --- Math --- %%%
+\newcommand{\mathtab}{{\:\:\:\:            }}
+\newcommand{\Antilog}{{\mathrm{Antilog}    }}
+\newcommand{\where  }{{\mathtab\text{where}}}
+\newcommand{\here   }{{\text{Here}         }}
+\newcommand{\rms    }[1]{{{#1}_\text{rms}  }}
+\newcommand{\abs    }[1]{{\mid{#1}\mid     }}
+\newcommand{\Sum    }{{\Sigma}}
+\newcommand{\of     }[1]{{\parenth{#1}     }}
+% complex numbers
+\newcommand{\setim    }[1]{\def\im{#1}}
+\newcommand{\cmplxvar }[1]{{\mathbb{{#1}}   }}
+\newcommand{\cmplxrect}[2]{{{#1}+{\:\im\:}{#2}}}
+\newcommand{\cmplxang}[1]{{\:\phase{{#1}}}}
+\newcommand{\cmplxpol}[2]{{{#1\:}\angle{#2}}}
+\newcommand{\cmplxpolcalc}[2]{{{#1\:\:}\cmplxang{#2}}}
+% \newcommand{\cmplxconj}[1]{{{#1}^*}}
+\newcommand{\cmplxconj}[1]{{\overline{#1}}}
+% trig
+\newcommand{\sine}[1]{{\:\sin\parenth{#1}}}
+\newcommand{\cosine}[1]{{\:\cos\parenth{#1}}}
+\newcommand{\taninv}{{\:{\tan^{-1}}}}
+\newcommand{\taninvp}[1]{{\:{\tan^{-1}}\parenth{#1}}}
+% oneton
+\newcommand{\sumoneton   }{{ \sum_{i=1}^n\:}}
+\newcommand{\prodoneton  }{{\prod_{i=1}^n\:}}
+\newcommand{\oneton      }{{1 , 2 , \cdots , n}}
+\newcommand{\onetonvar   }[2]{{{#1}_1 #2 {#1}_2 {#2} \cdots {#2} {#1}_n}}
+\newcommand{\onetonvarsum}[1]{\onetonvar{#1}{   +  }}
+\newcommand{\onetonvarmul}[1]{\onetonvar{#1}{\times}}
+% differential
+% d*/d*
+\newcommand{\deriv}[2]{{\dfrac{\mathrm{d}#1}{\mathrm{d}#2} }}
+% d/dx
+\newcommand{\dx     }   {{\:\mathrm{d}x                    }}
+\newcommand{\ddx    }[1]{{\dfrac{\mathrm{d}#1}{\mathrm{d}x}}}
+\newcommand{\ddxsymb}   {{\dfrac{\mathrm{d}  }{\mathrm{d}x}}}
+% d/dt
+\newcommand{\dt     }   {{\:\mathrm{d}t}}
+\newcommand{\ddt    }[1]{{\dfrac{\mathrm{d}#1}{\mathrm{d}t}}}
+\newcommand{\ddtsymb}   {{\dfrac{\mathrm{d}}{\mathrm{d}t}}}
+\newcommand{\partdd    }[2]{\dfrac{\partial\: #1}{\partial\: #2}}
+\newcommand{\partddsymb}[1]{\dfrac{\partial     }{\partial\: #1}}
+%%% --- Math --- %%%

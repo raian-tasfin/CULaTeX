@@ -1,0 +1,133 @@
+% highlightcolour for stat table rows
+\definecolor{highlightcolour}{rgb}{0.9, 0.9, 0.9}
+% random textbox on any place on the page
+\newcommand{\placetextbox}[4] {% \placetextbox{<offset top>}{<offset left/right>}{<align>}{<stuff>}
+		\setbox0=\hbox{#4}% Put <stuff> in a box
+		\AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+				\if#3r
+						\put(\LenToUnit{\paperwidth-#1},\LenToUnit{\paperheight-#2}) {
+								\vtop{{\null}\makebox[0pt][r] {
+												\begin{tabular}{r}
+												  #4
+												\end{tabular}
+										}
+								}
+						}%
+				\else
+						\put(\LenToUnit{#1},\LenToUnit{\paperheight-#2}) {
+								\vtop{{\null}\makebox[0pt][l] {
+												\begin{tabular}{l}
+												  #4
+												\end{tabular}
+										}
+								}
+						}%
+				\fi
+		}%
+}%
+% Custom numbered solution
+\newcommand{\solution}[1]{\vspace{-1em}\subsection*{Solution #1}\vspace{-0.5em}}
+%%% --- definition --- %%%
+% not number 
+\newenvironment{definition*}[1] {
+		\par\noindent
+		\begin{minipage}{\textwidth}
+				\par\vspace{1em}\textbf{#1:}\vspace{-0.5em}
+				\begin{enumerate}\item[]\slshape
+				} {
+				\end{enumerate}
+		\end{minipage}
+		\par\noindent
+		\vspace{0.5em}
+}
+
+% numbered
+\newcounter{cudefinitioncounter}
+\counterwithin{cudefinitioncounter}{section}
+\newenvironment{definition}[1] {
+		\par\noindent
+		\begin{minipage}{\textwidth}
+				\addtocounter{cudefinitioncounter}{1}
+				\par\vspace{1em}\textbf{Definition \thecudefinitioncounter} (#1).\vspace{-0.5em}
+				\begin{enumerate}\item[]\slshape
+				} {
+				\end{enumerate}
+		\end{minipage}
+		\par\noindent
+		\vspace{0.5em}
+}
+%%% --- definition --- %%%
+
+%%% --- problem statement --- %%%
+% with solution
+\newenvironment{problemstatement} {
+		\subsection*{Problem Statement}
+		\vspace{-0.25em}
+		\slshape
+} {
+		\vspace{-1em}
+		\subsection*{Solution}
+		\vspace{-0.5em}
+}
+% without solution
+\newenvironment{problemstatement*} {
+		\subsection*{Problem Statement}
+		\vspace{-0.25em}
+		\slshape
+} {
+		\par
+}
+%%% --- problem statement --- %%%
+
+%% comp table
+\newcounter{tabitemcounter}
+\newcommand{\tabitem      }{{\thetabitemcounter.\hspace{-1em}}}
+\newcommand{\tabnewline   }{\addtocounter{tabitemcounter}{1}\\}
+\newcommand{\tabheader    }[1]{\multicolumn{1}{ c |}{\textbf{#1}}}
+\newenvironment{comparisontable}[1] {		
+		\setcounter{tabitemcounter}{0}
+		\begin{table}[h!]
+				\centering
+				\begin{tabular}{#1}
+				  }{
+				\end{tabular}
+		\end{table}
+		\setcounter{tabitemcounter}{1}
+}
+
+%%% --- graphcis --- %%%
+\usetikzlibrary{decorations.pathreplacing, calligraphy}
+\usetikzlibrary{intersections}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{angles,quotes} % for pic
+\usetikzlibrary{bending} % for arrow head angle
+\tikzset{>=latex} % for LaTeX arrow head
+\tikzstyle{vector}=[->,very thick,line cap=round]
+\def\tick#1#2{\draw[thick] (#1) ++ (#2:0.12) --++ (#2-180:0.24)}
+\newcommand{\horizbrace}[3]{
+		\draw [decorate,decoration={calligraphic brace,amplitude=5pt,raise=1ex}] (axis cs:#1) -- (axis cs:#2) node[midway,yshift=-1.5em]{#3};%
+}
+\newcommand{\virtbrace}[3]{
+		\draw [decorate,decoration={calligraphic brace,amplitude=5pt,raise=1ex}] (axis cs:#1) -- (axis cs:#2) node[midway,xshift=1.5em]{#3};%
+}
+\newcommand{\labelpoint}[3]{
+		\filldraw[black] (#1) circle (2pt); \node[#2] {#3};
+}
+\newcommand{\drawpoint}[1]{
+		\filldraw[black] (#1) circle (2pt);
+}
+\newcommand{\horizbracegen}[3]{
+		\draw [decorate,decoration={calligraphic brace,amplitude=5pt,raise=1ex}] (#1) -- (#2) node[midway,yshift=-1.5em]{#3};%
+}
+\newcommand{\virtbracegen}[3]{
+		\draw [decorate,decoration={calligraphic brace,amplitude=5pt,raise=1ex}] (#1) -- (#2) node[midway,xshift=1.5em]{#3};%
+}
+%%% --- graphics --- %%%
+
+%%% --- currency --- %%%
+\DefineCurrency{BDT}{
+		name={taka},
+		plural={taka},
+		iso={BDT}
+}
+%%% --- currency --- %%%

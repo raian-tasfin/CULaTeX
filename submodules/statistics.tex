@@ -1,0 +1,98 @@
+%%% --- Statistics --- %%%
+\newcommand{\assignmentSTAoneFiveOne}[1] {
+		\setauthorsession{2021-2022}
+		\setauthorsemester{1st Semester}
+		\setauthordept{Department of Computer Science and Engineering}
+		\setauthorid{22701009}
+		\setauthorname{Raian Tasfin}
+		
+		\setreceivername{Dr. Md Abdul Maleque}
+		\setreceiverposition{Associate Professor}
+		\setreceiverdept{Department of Statistics}
+		
+		\setprogramme{B.Sc. Engg}
+		\setcoursetitle{Basic Statistics}
+		\setcoursecode{STA 151}
+		\setassignmentno{#1}
+}
+% Measures of central tendency
+\newcommand{\mean   }[1]{\overline{#1}}
+\newcommand{\AM     }{{\mathrm{AM}}    }
+\newcommand{\GM     }{{\mathrm{GM}}    }
+\newcommand{\HM     }{{\mathrm{HM}}    }
+\newcommand{\QM     }{{\mathrm{QM}}    }
+\newcommand{\WM     }{{\mathrm{WM}}    }
+\newcommand{\median }{{\mathrm{median}}}
+\newcommand{\mode   }{{\mathrm{mode}}  }
+% Location measures
+%% general
+\newcommand{\quartile  }[1]{{Q_{#1}}}
+\newcommand{\percentile}[1]{{P_{#1}}}
+\newcommand{\decile    }[1]{{D_{#1}}}
+\newcommand{\estimator }[1]{{\hat{#1}}}
+%% quartiles
+\newcommand{\firstquartile }{{\quartile{1}}}
+\newcommand{\secondquartile}{{\quartile{2}}}
+\newcommand{\thirdquartile }{{\quartile{3}}}
+%% deciles
+\newcommand{\firstdecile  }{{\decile{1}}}
+\newcommand{\seconddecile }{{\decile{2}}}
+\newcommand{\thirddecile  }{{\decile{3}}}
+\newcommand{\fourthdecile }{{\decile{4}}}
+\newcommand{\fifthdecile  }{{\decile{5}}}
+\newcommand{\sixthdecile  }{{\decile{6}}}
+\newcommand{\seventhdecile}{{\decile{7}}}
+\newcommand{\eighthdecile }{{\decile{8}}}
+\newcommand{\ninthdecile  }{{\decile{9}}}
+% general notation
+\newcommand{\on       }{{\mid}}
+\newcommand{\freqi    }{{f_i} }
+\newcommand{\midi     }{{x_i} }
+\newcommand{\classlowerbound}{{L_0}}
+\newcommand{\wheretotalpop  }{{\where, N = \sumoneton \freqi}}
+%% cumulfreq
+\newcommand{\cumulfreq    }{{cf}}
+\newcommand{\precumulfreq }{{\cumulfreq_{-1}}}
+\newcommand{\postcumulfreq}{{\cumulfreq_{+1}}}
+%% medianfreq
+\newcommand{\medianfreq    }{{f_m}}
+\newcommand{\premedianfreq }{{\medianfreq_{-1}}}
+\newcommand{\postmedianfreq}{{\medianfreq_{+1}}}
+%% modalfreq
+\newcommand{\modalfreq    }{{f_m}}
+\newcommand{\premodalfreq }{{\modalfreq_{-1}}}
+\newcommand{\postmodalfreq}{{\modalfreq_{+1}}}
+%% variance, covariance, correlation etc.
+% correlation
+\newcommand{\rankcorrelation }{{R_S}}
+\newcommand{\correlationr    }[1]{{r_{#1}                      }}
+\newcommand{\correlationrho  }[1]{{\rho_{#1}                   }}
+\newcommand{\correlation     }[1]{{\correlationr{#1}           }}
+\newcommand{\partcorrelation }[2]{{\correlation{{#1}\cdot{#2}} }}
+\newcommand{\multicorrelation}[2]{{R_{{#1}\cdot{#2}}           }}
+% regression
+\newcommand{\regressionb   }[1]{{b_{#1}                         }}
+\newcommand{\regressionbeta}[1]{{\beta_{#1}                     }}
+\newcommand{\regression    }[1]{{\regressionbeta{#1}            }}
+\newcommand{\partregression}[3]{{\regression{{#1}{#2}\cdot{#3}} }}
+\newcommand{\multiregressconst}{{\alpha_0                       }}
+% covariance
+\newcommand{\covariance   }[1]{{\text{Cov}\parenth{#1}}}
+\newcommand{\covarformula }[2]{
+		{\Sigma}{#1}{#2} - \dfrac{{\Sigma}{#1}\:{\Sigma}{#2}}{n}
+}
+\newcommand{\dcovarformula}[2]{
+		\sumoneton{#1}{#2} - \dfrac{\sumoneton{#1}\:\sumoneton{#2}}{n}
+}
+% variance
+\newcommand{\variance  }[1]{{\text{Var}\parenth{#1}}}
+\newcommand{\varianceformula}[1] {
+		{\Sigma}{#1}^2 - \dfrac{ \parenth{{\Sigma} {#1}}^2 }{n}
+}
+\newcommand{\dvarianceformula}[1] {
+		\sumoneton {#1} ^ 2 - \dfrac{ \parenth{\sumoneton {#1}} ^ 2 }{n}
+}
+% coefficient of determinant
+\newcommand{\coeffdetermination}{{R^2}}
+
+%%% --- Statistics --- %%%
