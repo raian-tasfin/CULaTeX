@@ -2,21 +2,29 @@
 \ProvidesPackage{culatex}[2023/04/08 Package for CU Lab Reports and Assignments]
 
 \RequirePackage{graphicx}
-\RequirePackage{ifthen}
-\RequirePackage{amsmath}
-\RequirePackage{amsfonts}
-\RequirePackage{txfonts}
-\RequirePackage{upgreek}
+% \RequirePackage{ifthen}
+% \RequirePackage{amsmath}
+% \RequirePackage{amsfonts}
+% \RequirePackage{txfonts}
+% \RequirePackage{upgreek}
 \RequirePackage{xcolor, colortbl}
-\RequirePackage[pscoord]{eso-pic}
+% \RequirePackage[pscoord]{eso-pic}
 \RequirePackage{mathtools}
-\RequirePackage{multicol}
+% \RequirePackage{multicol}
 \RequirePackage{tikz}
 \RequirePackage{pgfplots}
 \RequirePackage{siunitx}
-\RequirePackage{steinmetz}
+% \RequirePackage{steinmetz}
 \RequirePackage{currency}
+\RequirePackage{subfiles}
+% \RequirePackage{caption}
+% \RequirePackage{enumitem}
+% \RequirePackage{ragged2e}
+% \RequirePackage[linesnumbered,ruled]{algorithm2e}
 % \RequirePackage{upgreek}
+% \RequirePackage{suffix}
+\RequirePackage{xparse}
+\RequirePackage{bm}
 
 \graphicspath{/usr/local/share/texmf/tex/latex/graphics/}
 
@@ -25,3 +33,4 @@
 \input{submodules/math.tex}
 \input{submodules/physics-eee.tex}
 \input{submodules/statistics.tex}
+\input{submodules/algorithm.tex}

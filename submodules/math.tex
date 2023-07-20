@@ -1,3 +1,4 @@
+
 %% brackets
 \newcommand{\parenth   }[1]{\left( {#1} \right)}
 \newcommand{\squarepair}[1]{\left[ {#1} \right]}
@@ -19,7 +20,7 @@
 \newcommand{\rms    }[1]{{{#1}_\text{rms}  }}
 \newcommand{\abs    }[1]{{\mid{#1}\mid     }}
 \newcommand{\Sum    }{{\Sigma}}
-\newcommand{\of     }[1]{{\parenth{#1}     }}
+\newcommand{\of     }[1]{\parenth{#1}       }
 % complex numbers
 \newcommand{\setim    }[1]{\def\im{#1}}
 \newcommand{\cmplxvar }[1]{{\mathbb{{#1}}   }}
@@ -30,10 +31,16 @@
 % \newcommand{\cmplxconj}[1]{{{#1}^*}}
 \newcommand{\cmplxconj}[1]{{\overline{#1}}}
 % trig
-\newcommand{\sine}[1]{{\:\sin\parenth{#1}}}
-\newcommand{\cosine}[1]{{\:\cos\parenth{#1}}}
-\newcommand{\taninv}{{\:{\tan^{-1}}}}
-\newcommand{\taninvp}[1]{{\:{\tan^{-1}}\parenth{#1}}}
+\newcommand{\sine}[1]{{\sin\parenth{#1}}}
+\newcommand{\sininv}{{{\sin^{-1}}}}
+\newcommand{\cosinv}{{{\cos^{-1}}}}
+\newcommand{\cosine}[1]{{\cos\parenth{#1}}}
+\newcommand{\taninv}{{{\tan^{-1}}}}
+\newcommand{\taninvp}[1]{{{\tan^{-1}}\parenth{#1}}}
+\newcommand{\cosec}{{\mathrm{cosec}\:}}
+\newcommand{\cotinv}{{{{\cot^{-1}}}}}
+\newcommand{\secinv}{{{{\sec^{-1}}}}}
+\newcommand{\cosecinv}{{{{\cosec^{-1}}}}}
 % oneton
 \newcommand{\sumoneton   }{{ \sum_{i=1}^n\:}}
 \newcommand{\prodoneton  }{{\prod_{i=1}^n\:}}
@@ -46,12 +53,25 @@
 \newcommand{\deriv}[2]{{\dfrac{\mathrm{d}#1}{\mathrm{d}#2} }}
 % d/dx
 \newcommand{\dx     }   {{\:\mathrm{d}x                    }}
+\newcommand{\dtheta }   {{\:\mathrm{d}\theta               }}
+\newcommand{\dr     }   {{\:\mathrm{d}r                    }}
+\newcommand{\dy     }   {{\:\mathrm{d}y                    }}
 \newcommand{\ddx    }[1]{{\dfrac{\mathrm{d}#1}{\mathrm{d}x}}}
 \newcommand{\ddxsymb}   {{\dfrac{\mathrm{d}  }{\mathrm{d}x}}}
+\newcommand{\ddnx   }[2]{{\dfrac{\mathrm{d}^{#1} #2}{\mathrm{d}x^{#1}}}}
 % d/dt
 \newcommand{\dt     }   {{\:\mathrm{d}t}}
 \newcommand{\ddt    }[1]{{\dfrac{\mathrm{d}#1}{\mathrm{d}t}}}
 \newcommand{\ddtsymb}   {{\dfrac{\mathrm{d}}{\mathrm{d}t}}}
-\newcommand{\partdd    }[2]{\dfrac{\partial\: #1}{\partial\: #2}}
-\newcommand{\partddsymb}[1]{\dfrac{\partial     }{\partial\: #1}}
+\newcommand{\partdd     }[2]{\dfrac{\partial\: #1}{\partial\: #2}}
+\newcommand{\partddx    }[1]{{\partdd{#1}{x}}}
+\newcommand{\partddy    }[1]{{\partdd{#1}{y}}}
+\newcommand{\partddr    }[1]{{\partdd{#1}{r}}}
+\newcommand{\partddtheta}[1]{{\partdd{#1}{\theta}}}
+\newcommand{\partddsymb }[1]{\dfrac{\partial     }{\partial\: #1}}
+% interval
+\newcommand{\betweeninin}[3]{{{#1} \leq {#2} \leq {#3}}}
+\newcommand{\betweeninex}[3]{{{#1} \leq {#2} <    {#3}}}
+\newcommand{\betweenexin}[3]{{{#1} <    {#2} \leq {#3}}}
+\newcommand{\betweenexex}[3]{{{#1} <    {#2} <    {#3}}}
 %%% --- Math --- %%%

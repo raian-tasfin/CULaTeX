@@ -1,8 +1,6 @@
 (TeX-add-style-hook
  "culatex"
  (lambda ()
-   (TeX-add-to-alist 'LaTeX-provided-package-options
-                     '(("eso-pic" "pscoord")))
    (add-to-list 'LaTeX-verbatim-environments-local "pygments")
    (add-to-list 'LaTeX-verbatim-environments-local "pythontexcustomcode")
    (add-to-list 'LaTeX-verbatim-environments-local "VerbEnv")
@@ -74,21 +72,17 @@
     "submodules/math"
     "submodules/physics-eee"
     "submodules/statistics"
+    "submodules/algorithm"
     "graphicx"
-    "ifthen"
-    "amsmath"
-    "amsfonts"
-    "txfonts"
-    "upgreek"
     "xcolor"
     "colortbl"
-    "eso-pic"
     "mathtools"
-    "multicol"
     "tikz"
     "pgfplots"
     "siunitx"
-    "steinmetz"
-    "currency"))
+    "currency"
+    "subfiles"
+    "xparse"
+    "bm"))
  :latex)
 

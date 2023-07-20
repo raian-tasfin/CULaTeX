@@ -2,6 +2,7 @@
  "cover"
  (lambda ()
    (TeX-add-symbols
+    '("coverDataStructuresAssignment" 1)
     '("setreceiverposition" 1)
     "setauthordept"
     "setauthorsession"

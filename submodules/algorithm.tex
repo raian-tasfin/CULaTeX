@@ -1,0 +1,225 @@
+% Algorithm environment needed for Schaum's book.
+
+
+\newcommand{\ScAssign}[2]{$\text{#1}\bm{\coloneqq}\text{#2}$}
+
+\newcommand{\ScFont}[1]{\text{\fontfamily{lmtt}\selectfont\bfseries #1}}
+% \newcommand{\ScFont}[1]{{\mathversion{bold}$\mathtt{#1}$}}
+
+% begin: labels
+% create label
+\newcommand{\ScLabel}[1]{{[#1]}}
+\newcommand{\ScNewLabel}[2]{\def#1{{[#2.] }}}
+\ScNewLabel{\ScInit}{Initialize}
+\ScNewLabel{\ScEndIf}{End of If structure}
+\newcommand{\ScEndLoop}[1]{{[End of Step #1 loop.]}}
+% end: labels %
+
+% begin: tabbing %
+\newlength{\ScCurrentTabLen}
+\newlength{\ScIndentationDepth}
+\setlength{\ScIndentationDepth}{4ex}
+\newcommand{\ScIndent}{\addtolength{\ScCurrentTabLen}{\ScIndentationDepth}}
+\newcommand{\ScDedent}{\addtolength{\ScCurrentTabLen}{-\ScIndentationDepth}}
+\newcommand{\ScTab}{\hspace*{\ScCurrentTabLen}}
+% end: tabbing %
+
+% begin: block-command: if
+% args:
+% 1 - condition
+% 2 - body
+\newcommand{\@ScIfBlock}[2]{%
+	\begingroup%
+	If #1, then:%
+	\ScIndent%
+	#2%
+	\ScDedent%
+	\endgroup%
+	\ScNoStep{\ScEndIf}%
+}
+\newcommand{\@ScIfInline}[2]{If #1, then: #2}
+\NewDocumentCommand\ScIf{s}{%
+	\IfBooleanTF#1%
+	{\@ScIfInline}%
+	{\@ScIfBlock}%
+}
+
+
+\newcommand{\ScElseIf}[2]{%
+	\begingroup%
+	Else If #1, then:%
+	\ScIndent%
+	#2%
+	\ScDedent%
+	\endgroup%
+}
+\newcommand{\ScElse}[1]{%
+	\begingroup%
+	Else:%
+	\ScIndent%
+	#1%
+	\ScDedent%
+	\endgroup%
+}
+% end: block-command: if
+
+% begin: block-command: repeat
+% args:
+% 1 - condition
+% 2 - step
+% 3 - body
+\newcommand*{\ScRepeatNoend}[2]{%
+	\begingroup%
+	\edef\tmp{\theScStepCounter}%
+	Repeat #1:%
+	\ScIndent%
+	\ScNoStep{#2}%
+	\ScDedent%
+	\endgroup%
+}
+\newcommand*{\@ScRepeatunstarred}[2]{%
+	\begingroup%
+	\edef\tmp{\theScStepCounter}%
+	Repeat #1:%
+	\ScIndent%
+	#2%
+	\ScDedent%
+	\ScNoStep[End of Step \tmp\ loop.]%
+	\endgroup%
+}
+\newcommand*{\@ScRepeatstarred}[2]{%
+	\begingroup%
+	Repeat #1:%
+	\ScIndent%
+	#2%
+	\ScDedent%
+	\ScNoStep[End of loop.]%
+	\endgroup%
+}
+\NewDocumentCommand\ScRepeat{s}{%
+	\IfBooleanTF#1%
+	{\@ScRepeatstarred}%
+	{\@ScRepeatunstarred}%
+}
+% begin: block-command: repeat
+
+% begin: environment: ScListing
+% begin: counter: ScStepCounter
+\newcounter{ScStepCounter}
+% end: counter: ScStepCounter
+% begin: command: ScStep
+% Args: 1 - step body
+\newcommand{\ScStep}[1]{
+	\vspace*{-0.5em}
+	\refstepcounter{ScStepCounter}
+    \item[\theScStepCounter.]\ScTab#1
+}
+\newcommand{\ScNoStep}[1]{
+	\vspace*{-0.5em}
+	\item[]\ScTab#1
+}
+% end: command: ScStep
+\newenvironment{ScListing}{
+	\setlength{\ScCurrentTabLen}{0ex}
+	\begin{enumerate}[leftmargin=*]
+	}{
+	\end{enumerate}
+}
+% end: environment: ScListing
+
+% begin: environment: ScAlgorithm
+% begin: counter: ScAlgorithmCounter
+\newcounter{ScAlgorithmCounter}
+\ifdefined\thechapter
+	\counterwithing{chapter}
+\fi
+% end: counter: ScAlgorithmCounter
+\newenvironment{ScAlgorithm}[1]{
+	\bfseries
+	\refstepcounter{ScAlgorithmCounter}
+	\setcounter{ScStepCounter}{0}
+	\noindent\textbf{Algorithm \theScAlgorithmCounter.}
+	\fontfamily{lmtt}\selectfont
+	\begin{minipage}[t]{0.85\textwidth}
+		(#1)
+	}{
+	\end{minipage}
+	\bigskip
+	\newline
+	\noindent
+}
+% end: environment: ScAlgorithm
+
+
+% begin: environment: ScProcedure
+% begin: counter: ScProcedureCounter
+\newcounter{ScProcedureCounter}
+\ifdefined\thechapter
+	\counterwithing{chapter}
+\fi
+% end: counter: ScProcedureCounter
+\newenvironment{ScProcedure}[1]{
+	\bfseries
+	\refstepcounter{ScProcedureCounter}
+	\setcounter{ScStepCounter}{0}
+	\noindent\textbf{Procedure \theScProcedureCounter:}
+	\fontfamily{lmtt}\selectfont
+	\begin{minipage}[t]{0.85\textwidth}
+		#1
+		\begin{ScListing}
+	}{
+	\end{ScListing}
+	\end{minipage}
+	\bigskip
+	\newline
+	\noindent
+}
+\newenvironment{ScProcedure*}{
+	\bfseries
+	\refstepcounter{ScProcedureCounter}
+	\setcounter{ScStepCounter}{0}
+	\noindent\textbf{Procedure \theScProcedureCounter:}
+	\fontfamily{lmtt}\selectfont
+	\begin{minipage}[t]{0.85\textwidth}
+		\vspace{-0.5em}
+		\begin{ScListing}
+	}{
+	\end{ScListing}
+	\end{minipage}
+	\bigskip
+	\newline
+	\noindent
+}
+% end: environment: ScProcedure
+
+\newcounter{ScSubProcedureCounter}[ScProcedureCounter]
+\newenvironment{ScSubProcedure}[1]{
+	\bfseries
+	\refstepcounter{ScProcedureCounter}
+	\refstepcounter{ScSubProcedureCounter}
+	\setcounter{ScStepCounter}{0}
+	\noindent\textbf{Procedure \theScProcedureCounter\Alph{ScSubProcedureCounter}:}
+	\fontfamily{lmtt}\selectfont
+	\begin{minipage}[t]{0.85\textwidth}
+		#1
+		\begin{ScListing}
+	}{
+	\end{ScListing}
+	\end{minipage}
+	\bigskip
+	\newline
+	\noindent
+}
+
+
+% begin: environment: ScEnumerate
+\newenvironment{ScEnumerate}{
+	\ScIndent
+	\begin{enumerate}[leftmargin=\ScCurrentTabLen]
+		\vspace{-0.5em}
+	}{
+	\end{enumerate}
+	\ScDedent
+}
+\newcommand{\ScItem}[1]{\item #1\vspace{-0.5em}}
+% end: environment: ScEnumerate
